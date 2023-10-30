@@ -1,10 +1,4 @@
-// To-do List 
-// list
-// input
-// button
-//onclick take input value and add it to the list
-//auto empty input
-//const[StateVariable, Function] = useState([]);
+
 
 import { useState } from "react";
 //TASK STATE
@@ -21,7 +15,7 @@ const AddTask = () => {
         setTasks([...tasks, taskText]);
         }
         setTaskText('');
-}
+} 
 //remove Task 
 const removeTask = (index) => {
     const updatedTasks = tasks.filter((_, i) => i !== index);
