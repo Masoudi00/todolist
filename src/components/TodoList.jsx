@@ -19,9 +19,20 @@ const TodoList = () => {
         removeTask(index);
     }
 
+    const markTaskAsNotDone = (index) => {
+        const taskToMarkAsNotDone = doneTasks[index];
+        setTasks([...tasks, taskToMarkAsNotDone]);
+        removeDoneTask(index);
+    }
+
     const removeTask = (index) => {
-        const updatedTasks = tasks.filter((_, i) => i !== index);
+        const updatedTasks = tasks.filter((_, i) => i !== index); 
         setTasks(updatedTasks);
+    };
+
+    const removeDoneTask = (index) => {
+        const updatedDoneTasks = doneTasks.filter((_, i) => i !== index);
+        setDoneTasks(updatedDoneTasks);
     };
 
     return (
@@ -57,7 +68,7 @@ const TodoList = () => {
                 <ul>
                     {doneTasks.map((task, index) => (
                         <li key={index}>
-                            {task}
+                            {task} <button className="btn btn-warning  btn-sm" onClick={() => markTaskAsNotDone(index)}>Not Done</button>
                         </li>
                     ))}
                 </ul>
